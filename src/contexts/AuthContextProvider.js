@@ -99,7 +99,9 @@ const AuthContextProvider = ({ children }) => {
     handleSignUp,
   };
 
-  return <authContext.Provider value={values}>{children}</authContext.Provider>;
+  return (
+    <authContext.Provider value={values}> {children} </authContext.Provider>
+  );
 };
 
 export default AuthContextProvider;

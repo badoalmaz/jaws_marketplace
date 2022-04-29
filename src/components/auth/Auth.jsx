@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useAuth } from '../../contexts/AuthContextProvider';
 
 function Copyright(props) {
   return (
@@ -34,6 +35,19 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Auth() {
+  const {
+    email,
+    password,
+    emailError,
+    passwordError,
+    hasAccount,
+    setPassword,
+    setEmail,
+    setHasAccount,
+    handleLogin,
+    handleSignUp,
+  } = useAuth();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -76,6 +90,11 @@ export default function Auth() {
               name="email"
               autoComplete="email"
               autoFocus
+              helperText={emailError}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <TextField
               margin="normal"
@@ -86,29 +105,64 @@ export default function Auth() {
               type="password"
               id="password"
               autoComplete="current-password"
+              helperText={passwordError}
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
+
+            {hasAccount ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleLogin}
+              >
+                Sign In
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleSignUp}
+              >
+                Sign Up
+              </Button>
+            )}
+
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
+
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                {hasAccount ? (
+                  <Link
+                    href="#"
+                    variant="body2"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                ) : (
+                  <Link
+                    href="#"
+                    variant="body2"
+                    onClick={() => setHasAccount(!hasAccount)}
+                  >
+                    {'Have an account? Sign In'}
+                  </Link>
+                )}
               </Grid>
             </Grid>
           </Box>
