@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContextProvider';
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
@@ -21,6 +22,11 @@ const pages = [
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
+  const {
+    handleLogout,
+    user: { email },
+  } = useAuth();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -112,9 +118,15 @@ const Navbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Link to="/auth">
-              <Button sx={{ color: 'white' }}>LOGIN</Button>
-            </Link>
+            {email ? (
+              <Button sx={{ color: 'white' }} onClick={handleLogout}>
+                LOGOUT
+              </Button>
+            ) : (
+              <Link to="/auth">
+                <Button sx={{ color: 'white' }}>LOGIN</Button>
+              </Link>
+            )}
           </Box>
         </Toolbar>
       </Container>

@@ -118,7 +118,6 @@ export default function Auth() {
 
             {hasAccount ? (
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
@@ -128,7 +127,6 @@ export default function Auth() {
               </Button>
             ) : (
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
