@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import AboutUsPage from '../pages/AboutUsPage';
 import AuthPage from '../pages/AuthPage';
 import CartPage from '../pages/CartPage';
@@ -52,7 +53,15 @@ const MainRoutes = () => {
     },
   ];
 
-  return <div></div>;
+  return (
+    <>
+      <Routes>
+        {PUBLIC_ROUTES.map((item) => (
+          <Route path={item.link} element={item.element} key={item.id} />
+        ))}
+      </Routes>
+    </>
+  );
 };
 
 export default MainRoutes;
