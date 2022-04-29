@@ -1,11 +1,14 @@
 import Navbar from './components/navbar/Navbar';
+import AuthContextProvider from './contexts/AuthContextProvider';
 import MainRoutes from './routes/MainRoutes';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <MainRoutes />
+      <AuthContextProvider>
+        <Navbar />
+        <MainRoutes />
+      </AuthContextProvider>
     </>
   );
 }
