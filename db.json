@@ -2,11 +2,19 @@
   "products": [
     {
       "name": "efef",
-      "description": "feef",
+      "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, hand phone or pocket phone, sometimes shortened to simply mobile, cell, or just phone, is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area. The radio frequency link establishes a connection to the switching systems of a mobile phone operator, which provides access to the public switched telephone network (PSTN).",
       "price": null,
-      "picture": "fefe",
+      "picture": "https://www.zdnet.com/a/img/resize/0777188496ba7737a999b10f8fa1784955b3e94a/2022/03/21/4c74af21-b3bf-433f-b93b-d58e7099ef8d/image-7.jpg?width=770&height=578&fit=crop&auto=webp",
       "type": "efef",
       "id": 1
+    },
+    {
+      "name": "efef",
+      "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, hand phone or pocket phone",
+      "price": null,
+      "picture": "https://www.zdnet.com/a/img/resize/0777188496ba7737a999b10f8fa1784955b3e94a/2022/03/21/4c74af21-b3bf-433f-b93b-d58e7099ef8d/image-7.jpg?width=770&height=578&fit=crop&auto=webp",
+      "type": "efef",
+      "id": 2
     }
   ]
 }
