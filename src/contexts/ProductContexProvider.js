@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { createContext, useContext, useReducer } from 'react';
-import { ACTIONS } from '../helpers/consts';
+import { ACTIONS, JSON_API_PRODUCTS } from '../helpers/consts';
 
 export const productContext = createContext();
 
@@ -23,9 +24,18 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const ProductContexProvider = () => {
+const ProductContexProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  return <div></div>;
+
+  const addProduct = async (newProduct) => {
+    await axios.post(JSON_API_PRODUCTS, newProduct);
+  }
+
+  const values = {
+    addProduct,
+  }
+
+  return <productContext.Provider value={values}>{children}</productContext.Provider>;
 };
 
 export default ProductContexProvider;
