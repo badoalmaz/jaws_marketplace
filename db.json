@@ -1,3 +1,12 @@
 {
-  "products": []
+  "products": [
+    {
+      "name": "efef",
+      "description": "feef",
+      "price": null,
+      "picture": "fefe",
+      "type": "efef",
+      "id": 1
+    }
+  ]
 }
