@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AboutUsPage from '../pages/AboutUsPage';
+import AdminPage from '../pages/AdminPage';
 import AuthPage from '../pages/AuthPage';
 import CartPage from '../pages/CartPage';
 import ContactUsPage from '../pages/ContactUsPage';
@@ -50,6 +51,11 @@ const MainRoutes = () => {
       link: '*',
       element: <NotFoundPage />,
       id: 8,
+    },
+    {
+      link: '/admin',
+      element: <AdminPage />,
+      id: 9,
     },
   ];
 

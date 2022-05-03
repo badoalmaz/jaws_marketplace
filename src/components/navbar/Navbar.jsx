@@ -18,6 +18,7 @@ const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
   { name: 'CONTACTS', link: '/contacts', id: 2 },
   { name: 'PRODUCTS', link: '/products', id: 3 },
+  { name: 'ADMIN', link: '/admin', id: 4 },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
