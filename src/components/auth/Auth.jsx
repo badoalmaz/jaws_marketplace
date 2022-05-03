@@ -69,7 +69,7 @@ export default function Auth() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'gold' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -129,16 +129,18 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2,backgroundColor: 'gold', color:'darkslategray', "&:hover": {
+                  backgroundColor: '#f8f80a' }}}
                 onClick={handleSignUp}
+                
               >
                 Sign Up
               </Button>
             )}
 
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
+            <Grid container >
+              <Grid item xs >
+                <Link href="#" variant="body2" style={{color: 'darkslategray'}}>
                   Forgot password?
                 </Link>
               </Grid>
@@ -149,6 +151,7 @@ export default function Auth() {
                     href="#"
                     variant="body2"
                     onClick={() => setHasAccount(!hasAccount)}
+                    style={{color: 'darkslategray'}}
                   >
                     {"Don't have an account? Sign Up"}
                   </Link>
@@ -157,6 +160,7 @@ export default function Auth() {
                     href="#"
                     variant="body2"
                     onClick={() => setHasAccount(!hasAccount)}
+                    style={{color: 'darkslategray'}}
                   >
                     {'Have an account? Sign In'}
                   </Link>
