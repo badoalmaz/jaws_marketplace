@@ -1,3 +1,20 @@
 {
-  "products": []
+  "products": [
+    {
+      "name": "awe",
+      "description": "awe",
+      "price": null,
+      "picture": "awe",
+      "type": "aew",
+      "id": 1
+    },
+    {
+      "name": "awe",
+      "description": "awe",
+      "price": null,
+      "picture": "awe",
+      "type": "aew",
+      "id": 2
+    }
+  ]
 }
