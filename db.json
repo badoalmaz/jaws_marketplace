@@ -1,6 +1,7 @@
 {
   "products": [
     {
+<<<<<<< HEAD
       "name": "Talgat",
       "description": "hahahha",
       "price": "465465",
@@ -14,6 +15,29 @@
       "price": null,
       "picture": "kdosndfku",
       "type": "jdfskcnonr",
+=======
+      "name": "098765432456789",
+      "description": "efeerds",
+      "price": 322323,
+      "picture": "rereer",
+      "type": "ferereff",
+      "id": 1
+    },
+    {
+      "name": "veevf",
+      "description": "evfevf",
+      "price": null,
+      "picture": "evfefvefv",
+      "type": "efvfev",
+      "id": 2
+    },
+    {
+      "name": "evevev",
+      "description": "evevev",
+      "price": null,
+      "picture": "evfevr",
+      "type": "evev",
+>>>>>>> e6c94a97b3dec638ddc2a2f3f2d34f3205073a60
       "id": 3
     }
   ]

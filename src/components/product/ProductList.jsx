@@ -6,7 +6,8 @@ import ProductCard from './ProductCard';
 
 const ProductList = () => {
   const { products, getProducts } = useProducts();
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(products);
 
   useEffect(() => {
     getProducts();
@@ -17,7 +18,7 @@ const ProductList = () => {
   }, [searchParams]);
 
   return (
-    <Grid item md={9} sx={{display: 'flex',flexWrap: 'wrap'}}>
+    <Grid item md={9} sx={{ display: 'flex', flexWrap: 'wrap' }}>
       {products ? (
         products.map((item) => <ProductCard item={item} key={item.id} />)
       ) : (
