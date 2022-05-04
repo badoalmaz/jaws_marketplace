@@ -28,8 +28,9 @@ const ProductContexProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const getProducts = async () => {
-    const { data } = await axios(JSON_API_PRODUCTS);
-
+    const { data } = await axios(
+      `${JSON_API_PRODUCTS}${window.location.search}`
+    );
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: data,
