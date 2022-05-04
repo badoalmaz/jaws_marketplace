@@ -6,9 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../contexts/ProductContexProvider';
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
+
+  const { deleteProduct } = useProducts()
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -38,8 +41,8 @@ export default function ProductCard({ item }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Delete</Button>
-        <Button size="small">Edit</Button>
+        <Button size="small" onClick={() => deleteProduct(item.id)}>Delete</Button>
+        <Button size="small"onClick={() => navigate(`/edit/${item.id}`)}>Edit</Button>
       </CardActions>
     </Card>
   );
