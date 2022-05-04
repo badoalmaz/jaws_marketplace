@@ -1,61 +1,67 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import AboutUsPage from "../pages/AboutUsPage";
-import AdminPage from "../pages/AdminPage";
-import AuthPage from "../pages/AuthPage";
-import CartPage from "../pages/CartPage";
-import ContactUsPage from "../pages/ContactUsPage";
-import HomePage from "../pages/HomePage";
-import NotFoundPage from "../pages/NotFoundPage";
-import ProductDetailsPage from "../pages/ProductDetailsPage";
-import ProductsPage from "../pages/ProductsPage";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AboutUsPage from '../pages/AboutUsPage';
+import AdminPage from '../pages/AdminPage';
+import AuthPage from '../pages/AuthPage';
+import CartPage from '../pages/CartPage';
+import ContactUsPage from '../pages/ContactUsPage';
+import EditProductPage from '../pages/EditProductPage';
+import HomePage from '../pages/HomePage';
+import NotFoundPage from '../pages/NotFoundPage';
+import ProductDetailsPage from '../pages/ProductDetailsPage';
+import ProductsPage from '../pages/ProductsPage';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
     {
-      link: "/",
+      link: '/',
       element: <HomePage />,
       id: 1,
     },
     {
-      link: "/auth",
+      link: '/auth',
       element: <AuthPage />,
       id: 2,
     },
     {
-      link: "/about",
+      link: '/about',
       element: <AboutUsPage />,
       id: 3,
     },
     {
-      link: "/products",
+      link: '/products',
       element: <ProductsPage />,
       id: 4,
     },
     {
-      link: "/products/:id",
+      link: '/products/:id',
       element: <ProductDetailsPage />,
       id: 5,
     },
     {
-      link: "/cart",
+      link: '/cart',
       element: <CartPage />,
       id: 6,
     },
     {
-      link: "/contacts",
+      link: '/contacts',
       element: <ContactUsPage />,
       id: 7,
     },
     {
-      link: "*",
+      link: '*',
       element: <NotFoundPage />,
       id: 8,
     },
     {
-      link: "/admin",
+      link: '/admin',
       element: <AdminPage />,
       id: 9,
+    },
+    {
+      link: '/edit/:id',
+      element: <EditProductPage />,
+      id: 10,
     },
   ];
 

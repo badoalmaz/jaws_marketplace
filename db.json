@@ -1,20 +1,28 @@
 {
   "products": [
     {
-      "name": "awe",
-      "description": "awe",
+      "name": "efef",
+      "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, hand phone or pocket phone",
       "price": null,
-      "picture": "awe",
-      "type": "aew",
-      "id": 1
+      "picture": "https://www.zdnet.com/a/img/resize/0777188496ba7737a999b10f8fa1784955b3e94a/2022/03/21/4c74af21-b3bf-433f-b93b-d58e7099ef8d/image-7.jpg?width=770&height=578&fit=crop&auto=webp",
+      "type": "efef",
+      "id": 2
     },
     {
       "name": "awe",
       "description": "awe",
       "price": null,
       "picture": "awe",
-      "type": "aew",
-      "id": 2
+      "type": "ewa",
+      "id": 3
+    },
+    {
+      "name": "gsfgh",
+      "description": "sgjhdfgj",
+      "price": 34555,
+      "picture": "ukfguk",
+      "type": "gkvjk",
+      "id": 4
     }
   ]
 }

@@ -1,7 +1,19 @@
-import React from "react";
+import { Grid } from '@mui/material';
+import { Box } from '@mui/material';
+import React from 'react';
+import ProductList from '../components/product/ProductList';
+import SideBar from '../components/product/SideBar';
 
 const ProductsPage = () => {
-  return <div>ProductsPage</div>;
+  return (
+    <Box p={5}>
+      ProductsPage
+      <Grid container spacing={3}>
+        <ProductList />
+        <SideBar />
+      </Grid>
+    </Box>
+  );
 };
 
 export default ProductsPage;
