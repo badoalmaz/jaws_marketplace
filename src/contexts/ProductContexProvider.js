@@ -49,12 +49,18 @@ const ProductContexProvider = ({ children }) => {
     });
   };
 
+  const deleteProduct = async (id) => {
+    await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
+    getProducts();
+  };
+
   const values = {
     products: state.products,
     productDetails: state.productDetails,
     addProduct,
     getProducts,
     getProductDetails,
+    deleteProduct,
   };
 
   return (
