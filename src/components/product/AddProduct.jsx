@@ -1,10 +1,12 @@
 import { Box, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 
 const AddProduct = () => {
   const { addProduct } = useProducts();
 
+  const navigate = useNavigate()
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -77,7 +79,10 @@ const AddProduct = () => {
         variant="outlined"
         fullWidth
         size="large"
-        onClick={() => addProduct(product)}
+        onClick={() => {
+          addProduct(product);
+          navigate('/products')
+        }}
       >
         CREATE PRODUCT
       </Button>

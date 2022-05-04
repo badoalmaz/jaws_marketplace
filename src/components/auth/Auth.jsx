@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useAuth } from '../../contexts/AuthContextProvider';
 
+
 function Copyright(props) {
   return (
     <Typography
@@ -24,7 +25,7 @@ function Copyright(props) {
     >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        JAWS
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -69,7 +70,7 @@ export default function Auth() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'gold' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'yellowgreen' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -83,6 +84,7 @@ export default function Auth() {
           >
             <TextField
               margin="normal"
+              size="small"
               required
               fullWidth
               id="email"
@@ -95,9 +97,11 @@ export default function Auth() {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+             
             />
             <TextField
               margin="normal"
+              size="small"
               required
               fullWidth
               name="password"
@@ -120,8 +124,9 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2,backgroundColor:'royalblue' }}
                 onClick={handleLogin}
+
               >
                 Sign In
               </Button>
@@ -129,18 +134,16 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2,backgroundColor: 'gold', color:'darkslategray', "&:hover": {
-                  backgroundColor: '#f8f80a' }}}
+                sx={{ mt: 3, mb: 2,backgroundColor:'royalblue' }}
                 onClick={handleSignUp}
-                
               >
                 Sign Up
               </Button>
             )}
 
-            <Grid container >
-              <Grid item xs >
-                <Link href="#" variant="body2" style={{color: 'darkslategray'}}>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
@@ -151,7 +154,6 @@ export default function Auth() {
                     href="#"
                     variant="body2"
                     onClick={() => setHasAccount(!hasAccount)}
-                    style={{color: 'darkslategray'}}
                   >
                     {"Don't have an account? Sign Up"}
                   </Link>
@@ -160,7 +162,6 @@ export default function Auth() {
                     href="#"
                     variant="body2"
                     onClick={() => setHasAccount(!hasAccount)}
-                    style={{color: 'darkslategray'}}
                   >
                     {'Have an account? Sign In'}
                   </Link>
