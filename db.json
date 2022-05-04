@@ -1,6 +1,21 @@
 {
   "products": [
     {
+<<<<<<< HEAD
+      "name": "Talgat",
+      "description": "hahahha",
+      "price": "465465",
+      "picture": "https://cdn.printinix.com/mockup-image/if-custom-name-cant-fix-it-we-re-all-screwed-t-shirt---Sdffd.jpg?v=1&scale=0.4",
+      "type": "jdfskcnonr",
+      "id": 1
+    },
+    {
+      "name": "Tlkj;ljsdfsdf",
+      "description": "jfidledis",
+      "price": null,
+      "picture": "kdosndfku",
+      "type": "jdfskcnonr",
+=======
       "name": "098765432456789",
       "description": "efeerds",
       "price": 322323,
@@ -22,6 +37,7 @@
       "price": null,
       "picture": "evfevr",
       "type": "evev",
+>>>>>>> e6c94a97b3dec638ddc2a2f3f2d34f3205073a60
       "id": 3
     }
   ]
