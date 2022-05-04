@@ -1,3 +1,4 @@
+import ContactUs from './components/contactus/ContactUs';
 import Navbar from './components/navbar/Navbar';
 import AuthContextProvider from './contexts/AuthContextProvider';
 import ProductContexProvider from './contexts/ProductContexProvider';
@@ -10,6 +11,7 @@ function App() {
         <ProductContexProvider>
           <Navbar />
           <MainRoutes />
+          {/* <ContactUs/> */}
         </ProductContexProvider>
       </AuthContextProvider>
     </>

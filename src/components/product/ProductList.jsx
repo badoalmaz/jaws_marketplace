@@ -1,23 +1,25 @@
+import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 import ProductCard from './ProductCard';
 
 const ProductList = () => {
   const { products, getProducts } = useProducts();
-  console.log(products);
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [searchParams]);
 
   return (
-    <div>
+    <Grid item md={9} sx={{display:'flex', flexWrap: 'wrap'}}>
       {products ? (
-        products.map((item) => <ProductCard item={item} />)
+        products.map((item) => <ProductCard item={item} key={item.id}/>)
       ) : (
         <h2>Loading...</h2>
       )}
-    </div>
+    </Grid>
   );
 };
 
