@@ -13,7 +13,7 @@ const ProductList = () => {
   return (
     <div>
       {products ? (
-        products.map((item) => <ProductCard item={item} />)
+        products.map((item) => <ProductCard item={item} key={item.id} />)
       ) : (
         <h2>Loading...</h2>
       )}
