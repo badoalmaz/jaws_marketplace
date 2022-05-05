@@ -27,7 +27,7 @@ export default function ProductCard({ item }) {
         </Typography>
 
         <Typography gutterBottom variant="h5" component="div" sx={{color:'green', fontWeight:'700'}}>
-          {item.price} 
+          {item.price}$ 
         </Typography>
 
         <Typography
