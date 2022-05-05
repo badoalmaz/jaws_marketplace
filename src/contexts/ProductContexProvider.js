@@ -25,7 +25,7 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const ProductContexProvider = ({ children }) => {
+const ProductContexProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const location = useLocation();
@@ -92,9 +92,7 @@ const ProductContexProvider = ({ children }) => {
     fetchByParams,
   };
 
-  return (
-    <productContext.Provider value={values}>{children}</productContext.Provider>
-  );
-};
+
+  return <productContext.Provider value={values}>{children}</productContext.Provider>};
 
 export default ProductContexProvider;
