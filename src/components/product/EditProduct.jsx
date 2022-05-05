@@ -7,16 +7,9 @@ const EditProduct = () => {
   const { getProductDetails, productDetails, saveEditedProduct } =
     useProducts();
   const { id } = useParams();
-
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState({
-    name: '',
-    description: '',
-    price: 0,
-    picture: '',
-    type: '',
-  });
+  const [product, setProduct] = useState(productDetails);
 
   useEffect(() => {
     setProduct(productDetails);
@@ -61,8 +54,8 @@ const EditProduct = () => {
         id="outlined-basic"
         label="Price"
         variant="outlined"
-        value={product.price || ''}
         name="price"
+        value={product.price || ''}
         onChange={handleInp}
       />
       <TextField
@@ -92,7 +85,7 @@ const EditProduct = () => {
           navigate(-1);
         }}
       >
-        CREATE PRODUCT
+        EDIT PRODUCT
       </Button>
     </Box>
   );

@@ -10,7 +10,9 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
+
   const { deleteProduct } = useProducts();
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -22,6 +24,10 @@ export default function ProductCard({ item }) {
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.name}
+        </Typography>
+
+        <Typography gutterBottom variant="h5" component="div">
+          {item.price}
         </Typography>
 
         <Typography
