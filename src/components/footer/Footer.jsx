@@ -95,13 +95,7 @@ const Footer = () => {
 
 
                             </Grid>
-                            <Grid item xs={3}>
-
-                    <Button sx={{'&:hover': {
-      backgroundColor: 'yellowgreen', verticalAlign: 'middle'}}} variant="contained" size='large' startIcon={<LocationOnIcon />}>
-                                  View on map
-                                </Button>
-                            </Grid>
+                            
 
                     </Grid> 
                 </Container> 
