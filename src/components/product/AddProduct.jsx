@@ -7,6 +7,7 @@ const AddProduct = () => {
   const { addProduct } = useProducts();
   const navigate = useNavigate()
 
+
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -79,9 +80,9 @@ const AddProduct = () => {
         variant="outlined"
         fullWidth
         size="large"
-        onClick={() =>{
-          addProduct(product)
-          navigate('/products')
+        onClick={() => {
+          addProduct(product);
+          navigate('/products');
         }}
       >
         CREATE PRODUCT
