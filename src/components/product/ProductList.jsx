@@ -5,30 +5,27 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 import ProductCard from './ProductCard';
 
 const ProductList = () => {
-    const {products, getProducts} = useProducts();
+  const { products, getProducts } = useProducts();
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(products);
 
-    const [searchParams] = useSearchParams();
+  useEffect(() => {
+    getProducts();
+  }, []);
 
-    useEffect(() => {
-        getProducts();
-      
-      }, [])
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
 
-    useEffect(() => {
-      getProducts();
-    
-    }, [searchParams])
-    
-
-    return (
-        <Grid item md={8} sx={{display: 'flex'}}>
-            {products ? (
-                products.map(item=>(
-                    <ProductCard item={item} key={item.id}/>
-                ))
-            ) : (<h2>Loading...</h2>)}
-        </Grid>
-    );
+  return (
+    <Grid item md={9} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+      {products ? (
+        products.map((item) => <ProductCard item={item} key={item.id} />)
+      ) : (
+        <h2>Loading...</h2>
+      )}
+    </Grid>
+  );
 };
 
 export default ProductList;

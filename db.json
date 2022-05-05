@@ -1,6 +1,7 @@
 {
   "products": [
     {
+<<<<<<< HEAD
       "name": "ASUS Rog Strix",
       "description": "Экран ноутбука — одна из самых важных частей, и не только потому, что вы постоянно в него смотрите. Современные матрицы могут предложить не только качественную цветопередачу, но и скорость. Большинство игровых ноутбуков используют матрицы типа IPS, что гарантирует широкие углу обзора и хорошую цветопередачу. Но сегодня эти матрицы не только показывают хорошую картинку, но и делают это очень быстро. Например, ROG Strix SCAR III G731G оснащен матрицей с частотой обновления 240 Гц. Это обеспечивает максимально быстрое обновление информации на экране, а это помогает вам видеть соперника в игре намного раньше.",
       "price": 121321312,
@@ -22,6 +23,45 @@
       "price": 121321312,
       "picture": "https://www.tradeinn.com/f/13822/138228220/asus-rog-strix-g513ih-hn006-15.6-r7-4800h-16gb-512gb-ssd-gtx-1650-4gb-%D0%98%D0%B3%D1%80%D0%BE%D0%B2%D0%BE%D0%B9-%D0%9D%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA.jpg",
       "type": "dasf",
+=======
+<<<<<<< HEAD
+      "name": "Talgat",
+      "description": "hahahha",
+      "price": "465465",
+      "picture": "https://cdn.printinix.com/mockup-image/if-custom-name-cant-fix-it-we-re-all-screwed-t-shirt---Sdffd.jpg?v=1&scale=0.4",
+      "type": "jdfskcnonr",
+      "id": 1
+    },
+    {
+      "name": "Tlkj;ljsdfsdf",
+      "description": "jfidledis",
+      "price": null,
+      "picture": "kdosndfku",
+      "type": "jdfskcnonr",
+=======
+      "name": "098765432456789",
+      "description": "efeerds",
+      "price": 322323,
+      "picture": "rereer",
+      "type": "ferereff",
+      "id": 1
+    },
+    {
+      "name": "veevf",
+      "description": "evfevf",
+      "price": null,
+      "picture": "evfefvefv",
+      "type": "efvfev",
+      "id": 2
+    },
+    {
+      "name": "evevev",
+      "description": "evevev",
+      "price": null,
+      "picture": "evfevr",
+      "type": "evev",
+>>>>>>> e6c94a97b3dec638ddc2a2f3f2d34f3205073a60
+>>>>>>> 1ad5a9b3b8b6d1bf7c12cbd7698d94abb8ac82cf
       "id": 3
     }
   ]

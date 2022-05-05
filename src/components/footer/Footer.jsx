@@ -10,7 +10,7 @@ const Footer = () => {
             > 
                 <Container maxWidth="xl"> 
                     <Grid container spacing={3}> 
-                        <Grid item xs={12} sm={3}>
+                        <Grid item xs={3} sm={3}>
                         <img  id='logo' src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png" alt="" />
                             <Grid pt={5}>
                                 <Typography variant='h6' sx={{color: '#9999A6'}}>Got Question? Call us 24/7</Typography>
@@ -25,7 +25,7 @@ const Footer = () => {
                         </Grid>
 
                         
-                        <Grid item xs={12} sm={3}>
+                        <Grid item xs={3} sm={3}>
                             <Grid pt={3} mt={5}>
                         <Typography variant='h6' sx={{color: '#9999A6'}}>We Using</Typography>
                         <Typography variant='h6'>Safe Payments</Typography>
@@ -43,7 +43,7 @@ const Footer = () => {
                         
 
                         
-                            <Grid item px={5} xs={12} sm={3} sx={{display: 'flex', flexDirection: 'column'}}>
+                            <Grid item px={5} xs={3} sm={3} sx={{display: 'flex', flexDirection: 'column'}}>
                         <Typography variant='h6'>Quick Links</Typography>
                             <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Support Center
@@ -69,32 +69,40 @@ const Footer = () => {
                             
                             
                             </Grid>
-                            <Grid item pr={5} xs={12} sm={3} sx={{display: 'flex', flexDirection: 'column'}}>
+                            <Grid item pr={5} xs={3} sm={3} sx={{display: 'flex', flexDirection: 'column'}}>
                                 <Typography variant='h6'>Our Stores</Typography>
-                                 <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                                 <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                                  New York
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             London SF
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Cockfosters BP
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Los Angeles
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Chicago
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Las Vegas
                             </Link>
-                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" variant="body2" underline="hover">
+                            <Link variant='body1' py={{xs: 1}} sx={{color: '#9999A6'}} href="#" color="inherit" underline="hover">
                             Albarto
                             </Link>
 
 
                             </Grid>
+                            <Grid item xs={3}>
+
+                    <Button sx={{'&:hover': {
+      backgroundColor: 'yellowgreen', verticalAlign: 'middle'}}} variant="contained" size='large' startIcon={<LocationOnIcon />}>
+                                  View on map
+                                </Button>
+                            </Grid>
+
                     </Grid> 
                 </Container> 
                     <Box textAlign='start' sx={{color: '#9999A6'}} variant='body2' pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}> 

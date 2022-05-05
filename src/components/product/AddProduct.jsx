@@ -5,7 +5,8 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 
 const AddProduct = () => {
   const {addProduct} = useProducts();
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState({
     name: '',
@@ -73,7 +74,15 @@ const AddProduct = () => {
         name='type'
         onChange={handleInp}
       />
-      <Button onClick={() => { addProduct(product); navigate('/products')} } variant="outlined" fullWidth size="large">
+      <Button
+        variant="outlined"
+        fullWidth
+        size="large"
+        onClick={() => {
+          addProduct(product);
+          navigate('/products');
+        }}
+      >
         CREATE PRODUCT
       </Button>
     </Box>
