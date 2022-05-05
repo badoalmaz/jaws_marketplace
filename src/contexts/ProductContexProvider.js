@@ -25,11 +25,11 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const ProductContexProvider = ({ children }) => {
+const ProductContexProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const getProducts = async () => {
     const { data } = await axios(
@@ -66,17 +66,18 @@ const ProductContexProvider = ({ children }) => {
 
   //filter
   const fetchByParams = async (query, value) => {
-    const search = new URLSearchParams(location.search)
-    if (value === 'all'){
-      search.delete(query)
-    }else{
-      search.set(query, value)
+    const search = new URLSearchParams(location.search);
+
+    if (value === 'all') {
+      search.delete(query);
+    } else {
+      search.set(query, value);
     }
-
-    const url = `${location.pathname}?${search.toString()}`
-
-    navigate(url)
-  }
+    const url = `${location.pathname}?${search.toString()}`;
+    console.log(search.toString());
+    console.log(url);
+    navigate(url);
+  };
 
   const values = {
     products: state.products,
@@ -91,9 +92,7 @@ const ProductContexProvider = ({ children }) => {
     fetchByParams,
   };
 
-  return (
-    <productContext.Provider value={values}>{children}</productContext.Provider>
-  );
-};
+
+  return <productContext.Provider value={values}>{children}</productContext.Provider>};
 
 export default ProductContexProvider;
