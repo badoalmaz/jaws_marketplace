@@ -3,11 +3,11 @@ import EditProduct from '../components/product/EditProduct';
 
 const EditProductPage = () => {
   return (
-  <div>
-    EditProductPage
-    
-    <EditProduct />
-    </div>);
+    <div>
+      EditProductPage
+      <EditProduct />
+    </div>
+  );
 };
 
 export default EditProductPage;

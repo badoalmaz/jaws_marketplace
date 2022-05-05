@@ -79,8 +79,9 @@ const AddProduct = () => {
         variant="outlined"
         fullWidth
         size="large"
-        onClick={() => {addProduct(product);
-          navigate('/products')
+        onClick={() => {
+          addProduct(product);
+          navigate('/products');
         }}
       >
         CREATE PRODUCT

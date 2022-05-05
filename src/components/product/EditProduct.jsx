@@ -4,39 +4,33 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 
 const EditProduct = () => {
+  const { getProductDetails, productDetails, saveEditedProduct } =
+    useProducts();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-    const {getProductDetails, productDetails, saveEditedProduct} = useProducts()
-    const {id} = useParams()
-    const navigate = useNavigate()
+  const [product, setProduct] = useState(productDetails);
 
-    const [product, setProduct] = useState({
-        name: '',
-        description: '',
-        price: 0,
-        picture: '',
-        type: '',
-      });
+  useEffect(() => {
+    setProduct(productDetails);
+  }, [productDetails]);
 
-      useEffect(() => {
-          setProduct(productDetails)
-      }, [productDetails])
+  useEffect(() => {
+    getProductDetails(id);
+  }, []);
 
-    useEffect(() => {
-        getProductDetails(id)
-    }, [])
+  console.log(product);
 
-    console.log(product);
+  const handleInp = (e) => {
+    let obj = {
+      ...product,
+      [e.target.name]: e.target.value,
+    };
+    setProduct(obj);
+  };
 
-    const handleInp = (e) => {
-        let obj = {
-            ...product,
-            [e.target.name] : e.target.value
-        }
-        setProduct(obj)
-    }
-
-    return (
-        <Box sx={{ width: '60vw', margin: '10vh auto' }}>
+  return (
+    <Box sx={{ width: '60vw', margin: '10vh auto' }}>
       <TextField
         fullWidth
         id="outlined-basic"
@@ -87,14 +81,14 @@ const EditProduct = () => {
         fullWidth
         size="large"
         onClick={() => {
-            saveEditedProduct(product);
-          navigate('/products')
+          saveEditedProduct(product);
+          navigate(-1);
         }}
       >
         EDIT PRODUCT
       </Button>
     </Box>
-    );
+  );
 };
 
 export default EditProduct;

@@ -22,7 +22,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        JAWS
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -40,100 +40,88 @@ export default function AboutUs() {
      <main>
         {/* Hero unit */}
         
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-            // display: 'flex',
-            // flexContainer: 'row'
-
-          }}
->
-          <Paper sx={{ m: 3 }} elevation={24}>
-      <Grid container spacing={8}>
-        <Grid item xs={6}></Grid>
-        <img
-            alt=""
-            style={{ maxWidth: '100%' }}
-          />
-        </Grid>
-        <Grid item xs={6}></Grid>
-
-          <Container  sx={{ display: 'flex', maxWidth: '100%', justifyContent: 'space-between' }}>
-              
-          <Typography
+<Box
+  sx={{
+      bgcolor: 'background.paper',
+      pt: 8,
+      pb: 6,
+  }}
+    >
+  <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
+    <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5} >
+      <Grid container>
+        <Grid item sm={12} md={6} >
+          <Typography 
+          
               component="h1"
-              variant="h2"
+              variant="h3"
               align="center"
               color="text.primary"
               gutterBottom
-             
-            >
+              mr= {5}
+              
+             >
               Creative and renovate fashion trends
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            <Typography variant="h5" color="text.secondary" paragraph>
             Collaboratively administrate empowered markets via plug-and-play maintain networks. Dynamically usable procrastinate B2B users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI
             </Typography>
-            </Typography>
-                <CardMedia
-                    component="img"
-                    height='470'
-                    width='470'
-                    image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_11.png"
-                    alt="JAWS"
-                />
+
+          </Typography>
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <CardMedia
+            component="img"
+            sx={{ width:'100%'}}
+            image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_11.png"
+            alt="JAWS"
+          />
+        </Grid>
+      </Grid>
             <Stack
               sx={{ pt: 8 }}
-              // direction="row"
               spacing={6}
               justifyContent="center"
             >
             </Stack>
-            </Container>
-            </Paper>
-          </Box>
+    </Container>
+  </Paper>
+</Box>
 
-          <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-            // display: 'flex',
-            // flexContainer: 'row'
+  <Box
+    sx={{
+      bgcolor: 'background.paper',
+      pt: 8,
+      pb: 6,
+    }}
+    >
 
-          }}
->
-          <Paper sx={{ m: 3 }} elevation={24}>
-      <Grid container spacing={8}>
-        <Grid item xs={6}></Grid>
-        <img
-            alt=""
-            style={{ maxWidth: '100%' }}
-          />
-        </Grid>
-        <Grid item xs={6}></Grid>
-
-          <Container  sx={{ display: 'flex', maxWidth: '100%', justifyContent: 'space-between' }}>
-                <CardMedia
-                    component="img"
-                    height='470'
-                    width='470'
-                    image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_21.png"
-                    alt="JAWS"
-                />
+  <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
+      <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5}>
+        <Grid container>
+          <Grid item sm={12} md={6}>
+            <CardMedia
+              component="img"
+              sx={{ width:'100%'}}
+              image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_21.png"
+              alt="JAWS"
+              ml={8}
+              />
+          </Grid>
               
-          <Typography
+          <Grid item sm={12} md={6}>
+            <Typography
+            sx={{align: 'center'}}
               component="h1"
               variant="h2"
               align="center"
               color="text.primary"
               gutterBottom
-             
+              ml={5}
+              
             >
-              We are marketpress
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            We are marketpress
+            <Typography  variant="h5"  color="text.secondary" paragraph>
             Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
-
                 VISION
                 Credibly innovate granular internal
                 Grantedly underconstructions reloaded
@@ -141,18 +129,22 @@ export default function AboutUs() {
                 Completely synergize resource taxing relationships
             </Typography>
             </Typography>
-            <Stack
-              sx={{ pt: 8 }}
-              // direction="row"
-              spacing={6}
-              justifyContent="center"
-            >
-            </Stack>
-            </Container>
-            </Paper>
-        </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+          </Grid>
+        </Grid>
+
+        <Stack
+          sx={{ pt: 8 }}
+          spacing={6}
+          justifyContent="center"
+        >
+        </Stack>
+      </Container>
+  </Paper>
+  </Box>
           {/* End hero unit */}
+
+        <Container sx={{ py: 8 }} maxWidth="md">
+          
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>

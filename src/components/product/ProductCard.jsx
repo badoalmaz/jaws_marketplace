@@ -11,7 +11,8 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
-  const { deleteProduct } = useProducts()
+  const { deleteProduct } = useProducts();
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -41,8 +42,13 @@ export default function ProductCard({ item }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => deleteProduct(item.id)}>Delete</Button>
-        <Button size="small"onClick={() => navigate(`/edit/${item.id}`)}>Edit</Button>
+        <Button size="small" onClick={() => deleteProduct(item.id)}>
+          Delete
+        </Button>
+
+        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+          Edit
+        </Button>
       </CardActions>
     </Card>
   );

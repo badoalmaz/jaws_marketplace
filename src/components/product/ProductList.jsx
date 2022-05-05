@@ -1,12 +1,13 @@
-import { Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import { Box, Grid, Pagination } from '@mui/material';
+import { minHeight } from '@mui/system';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 import ProductCard from './ProductCard';
 
 const ProductList = () => {
   const { products, getProducts } = useProducts();
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
   console.log(products);
 
   useEffect(() => {
@@ -15,15 +16,39 @@ const ProductList = () => {
 
   useEffect(() => {
     getProducts();
-  }, [searchParams]);
+    setPage(1)
+    }, [searchParams]);
+
+  //pagination
+  const [page, setPage] = useState(1)
+  const itemsPerPage = 3
+  const count = Math.ceil(products.length/ itemsPerPage)
+
+
+  const handleChange = (e, p) =>{
+    console.log(p);
+    setPage(p)
+  }
+
+  function currentData() {
+    const begin = (page -1)* itemsPerPage
+    const end = begin + itemsPerPage
+    return products.slice(begin, end)
+  }
 
   return (
-    <Grid item md={9} sx={{display: 'flex', flexWrap: 'wrap'}}>
+    <Grid item md={9}>
+
+      <Box  sx={{ display: 'flex', flexWrap: 'wrap', minHeight: '60vh', mb: '10vh' }}>
       {products ? (
-        products.map((item) => <ProductCard item={item} key={item.id}/>)
-      ) : (
-        <h2>Loading...</h2>
-      )}
+        currentData().map((item) => <ProductCard item={item} key={item.id} />)
+        ) : (
+          <h2>Loading...</h2>
+          )}
+      </Box>
+
+      <Pagination count={count} variant="outlined" shape="rounded" onChange={handleChange} page={page}/>
+
     </Grid>
   );
 };
