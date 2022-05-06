@@ -14,6 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContextProvider';
 
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
+
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
   { name: 'CONTACTS', link: '/contacts', id: 2 },
@@ -47,8 +51,8 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position="static" elevation={3} >
+      <Container maxWidth="xl" sx={{background:'white'}}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -56,7 +60,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            <img  id='logo' src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png" alt="" />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -66,8 +70,6 @@ const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
-              
             >
               <MenuIcon />
             </IconButton>
@@ -77,6 +79,7 @@ const Navbar = () => {
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
+                color:'black',
               }}
               keepMounted
               transformOrigin={{
@@ -92,7 +95,7 @@ const Navbar = () => {
                 {pages.map((page) => (
                   <MenuItem key={page.id} onClick={handleCloseNavMenu}>
                     <Link to={page.link}>
-                      <Typography >{page.name}</Typography>
+                      <Typography sx={{ ml: 'auto',my: 1, color: 'black', display: 'block',}}>{page.name}</Typography>
                     </Link>
                   </MenuItem>
                 ))}
@@ -105,29 +108,37 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            <img  id='logo' src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png" alt="" />
           </Typography>
           <Box sx={{justifyContent: 'center', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link to={page.link} key={page.id}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ ml: 'auto',my: 2, color: 'white', display: 'block' }}
+                  sx={{ ml: 'auto',my: 2, color: 'black', display: 'block', fontWeight: 'bold'}}
                 >
                   {page.name}
                 </Button>
               </Link>
             ))}
+
+            <Link to="/cart">
+              <Button sx={{ my: 2, color: 'black' }}>
+                <Badge badgeContent={4} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             {email ? (
-              <Button sx={{ color: 'white' }} onClick={handleLogout}>
+              <Button sx={{ color: 'black',fontWeight: 'bold' }} onClick={handleLogout}>
                 LOGOUT
               </Button>
             ) : (
               <Link to="/auth">
-                <Button sx={{ color: 'white' }}>LOGIN</Button>
+                <Button sx={{ color: 'black',fontWeight: 'bold' }}>LOGIN</Button>
               </Link>
             )}
           </Box>

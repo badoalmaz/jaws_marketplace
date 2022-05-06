@@ -19,30 +19,26 @@ const ProductList = () => {
     setPage(1);
   }, [searchParams]);
 
+  // pagination
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 3;
 
-    // pagination
-    const [page, setPage] = useState(1);
-    const itemsPerPage = 3;
-  
-    const count = Math.ceil(products.length / itemsPerPage);
-  
-    const handleChange = (e, p) => {
-      console.log(p);
-      setPage(p);
-    };
-  
-    function currentData() {
-      const begin = (page - 1) * itemsPerPage;
-      const end = begin + itemsPerPage;
-      return products.slice(begin, end);
-    }
-  
+  const count = Math.ceil(products.length / itemsPerPage);
 
+  const handleChange = (e, p) => {
+    console.log(p);
+    setPage(p);
+  };
+
+  function currentData() {
+    const begin = (page - 1) * itemsPerPage;
+    const end = begin + itemsPerPage;
+    return products.slice(begin, end);
+  }
 
   return (
     <>
       <Grid item md={9}>
-
         <Box
           sx={{
             display: 'flex',
@@ -71,6 +67,5 @@ const ProductList = () => {
     </>
   );
 };
-
 
 export default ProductList;
