@@ -67,6 +67,7 @@ const Navbar = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              
             >
               <MenuIcon />
             </IconButton>
@@ -87,14 +88,15 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <Link to={page.link}>
-                    <Typography textAlign="center">{page.name}</Typography>
-                  </Link>
-                </MenuItem>
-              ))}
+            ><Box >
+                {pages.map((page) => (
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <Link to={page.link}>
+                      <Typography >{page.name}</Typography>
+                    </Link>
+                  </MenuItem>
+                ))}
+            </Box>
             </Menu>
           </Box>
           <Typography
@@ -105,12 +107,12 @@ const Navbar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{justifyContent: 'center', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link to={page.link} key={page.id}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ ml: 'auto',my: 2, color: 'white', display: 'block' }}
                 >
                   {page.name}
                 </Button>
