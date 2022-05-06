@@ -16,7 +16,7 @@ export default function ProductCard({ item }) {
 
   const { deleteProduct } = useProducts();
 
-  const { addProductToCart } = useCart();
+  const { addProductToCart, checkProductInCart } = useCart();
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -56,7 +56,9 @@ export default function ProductCard({ item }) {
         </Button>
 
         <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon />
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? 'primary' : ''}
+          />
         </IconButton>
       </CardActions>
     </Card>

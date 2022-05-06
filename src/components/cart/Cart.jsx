@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useCart } from '../../contexts/CartContextProvider';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,39 +43,72 @@ const rows = [
 ];
 
 export default function Cart() {
-  const { getCart, cart } = useCart();
+  const { getCart, cart, changeProductCount, deleteCartProduct } = useCart();
+
   console.log(cart);
 
   React.useEffect(() => {
     getCart();
   }, []);
 
+  const cartCleaner = () => {
+    localStorage.removeItem('cart');
+    getCart();
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>Picture</StyledTableCell>
+            <StyledTableCell align="right">Name</StyledTableCell>
+            <StyledTableCell align="right">Type</StyledTableCell>
+            <StyledTableCell align="right">Description</StyledTableCell>
+            <StyledTableCell align="right">Price</StyledTableCell>
+            <StyledTableCell align="right">Count</StyledTableCell>
+            <StyledTableCell align="right">SubPrice</StyledTableCell>
+            <StyledTableCell align="right">-</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {cart?.products.map((row) => (
+            <StyledTableRow key={row.item.id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                <img src={row.item.picture} alt="" width="70" height="70" />
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right">{row.item.name}</StyledTableCell>
+              <StyledTableCell align="right">{row.item.type}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.item.description}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.item.price}</StyledTableCell>
+
+              <StyledTableCell align="right">
+                <input
+                  type="number"
+                  min={1}
+                  max={1000}
+                  value={row.count}
+                  onChange={(e) =>
+                    changeProductCount(e.target.value, row.item.id)
+                  }
+                />
+              </StyledTableCell>
+
+              <StyledTableCell align="right">{row.subPrice}</StyledTableCell>
+
+              <StyledTableCell align="right">
+                <Button onClick={() => deleteCartProduct(row.item.id)}>
+                  DELETE
+                </Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
+
+      <Button onClick={cartCleaner}> BUY NOW FOR {cart?.totalPrice} $</Button>
     </TableContainer>
   );
 }
