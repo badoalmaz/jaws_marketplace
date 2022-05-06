@@ -13,10 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContextProvider';
+import { ShoppingCart } from '@mui/icons-material';
+import { Badge } from '@mui/material';
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
-  { name: 'CONTACTS', link: '/contacts', id: 2 },
+  { name: 'CONTACT US', link: '/contacts', id: 2 },
   { name: 'PRODUCTS', link: '/products', id: 3 },
   { name: 'ADMIN', link: '/admin', id: 4 },
 ];
@@ -116,6 +118,14 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
+
+            <Link to='/cart'>  
+            <Button sx={{color: 'white', my: 2}} > 
+            <Badge badgeContent={4} color="error"> <ShoppingCart/> </Badge> 
+            </Button>
+            </Link>  
+
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
