@@ -5,8 +5,8 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 
 const AddProduct = () => {
   const {addProduct} = useProducts();
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
 
   const [product, setProduct] = useState({
     name: '',

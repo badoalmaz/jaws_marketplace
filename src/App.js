@@ -12,10 +12,9 @@ function App() {
       <AuthContextProvider>
         <ProductContexProvider>
           <CartContextProvider>
-          <Navbar />
-          <ThemeRoot /> 
-          <MainRoutes />
-          <Footer />
+            <Navbar />
+            <MainRoutes />
+            <Footer />
           </CartContextProvider>
         </ProductContexProvider>
       </AuthContextProvider>
