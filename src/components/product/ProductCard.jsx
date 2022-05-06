@@ -15,9 +15,9 @@ export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
   const { deleteProduct } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart()
 
-  const { addProductToCart, checkProductInCart } = useCart();
-
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
