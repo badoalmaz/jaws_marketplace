@@ -28,7 +28,11 @@ export default function ProductCard({ item }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {item.name}
+          {item.name} 
+        </Typography>
+
+        <Typography gutterBottom variant="h5" component="div" sx={{color:'green', fontWeight:'700'}}>
+          {item.price}$ 
         </Typography>
 
         <Typography
