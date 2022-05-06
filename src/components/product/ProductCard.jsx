@@ -15,9 +15,9 @@ export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
   const { deleteProduct } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart()
 
-  const { addProductToCart,  checkProductInCart} = useCart();
-
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -28,7 +28,11 @@ export default function ProductCard({ item }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {item.name}
+          {item.name} 
+        </Typography>
+
+        <Typography gutterBottom variant="h5" component="div" sx={{color:'green', fontWeight:'700'}}>
+          {item.price}$ 
         </Typography>
 
         <Typography
@@ -56,7 +60,9 @@ export default function ProductCard({ item }) {
         </Button>
 
         <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon color={checkProductInCart(item.id)? 'primary':''}/>
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? 'primary' : ''}
+          />
         </IconButton>
       </CardActions>
     </Card>

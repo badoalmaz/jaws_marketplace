@@ -122,23 +122,31 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-
-  function deleteCartProduct(id){
+  function checkProductInCart(id) {
     let cart = JSON.parse(localStorage.getItem('cart'));
-    cart.products = cart.products.filter((elem)=>elem.item.id !== id);
-
-    cart.totalPrice = calcTotalPrice(cart.products);
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    getCart();
-
-    dispatch({
-      type: CART.GET_CART,
-      payload: cart,
-    });
-
+    if (cart) {
+      let newCart = cart.products.filter((elem) => elem.item.id == id);
+      return newCart.length > 0 ? true : false;
+    } else {
+      cart = {
+        product: [],
+        totalPrice: 0,
+      };
+    }
   }
 
+  function deleteCartProduct(id) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart.products = cart.products.filter((elem) => elem.item.id !== id);
+
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    getCart();
+    dispatch({
+      type: CART.GET_CART_LENGTH,
+      payload: cart,
+    });
+  }
 
   return (
     <cartContext.Provider
