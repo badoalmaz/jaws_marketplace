@@ -7,11 +7,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
+import { IconButton } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart } from '../../contexts/CartContextProvider';
+
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
   const { deleteProduct } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart()
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -49,6 +54,10 @@ export default function ProductCard({ item }) {
         <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
           Edit
         </Button>
+
+        <IconButton onClick={() => addProductToCart(item)}>
+          <ShoppingCartIcon color={checkProductInCart(item.id) ? 'warning' : ''}/>
+        </IconButton>
       </CardActions>
     </Card>
   );

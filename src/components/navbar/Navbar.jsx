@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContextProvider';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
@@ -116,6 +118,15 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
+
+              <Link to="/cart">
+            <Button sx={{my:2,color: 'white'}}>
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+            </Button>
+              </Link>
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

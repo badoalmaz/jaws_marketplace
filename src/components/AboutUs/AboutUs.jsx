@@ -1,32 +1,21 @@
 import * as React from 'react';
-// import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-// import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-// import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from '@mui/material';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        JAWS
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <>
+    </>
   );
 }
 
@@ -50,7 +39,9 @@ export default function AboutUs() {
   <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
     <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5} >
       <Grid container>
-        <Grid item sm={12} md={6} >
+        <Grid item sm={12} md={6}
+          sx={{ margin: "auto"}}
+        >
           <Typography 
           
               component="h1"
@@ -60,9 +51,10 @@ export default function AboutUs() {
               gutterBottom
               mr= {5}
               
+              
              >
               Creative and renovate fashion trends
-            <Typography variant="h5" color="text.secondary" paragraph>
+            <Typography variant="h5" color="text.secondary" paragraph sx={{ margin: "auto", verticalAlign: 'middle'}}>
             Collaboratively administrate empowered markets via plug-and-play maintain networks. Dynamically usable procrastinate B2B users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI
             </Typography>
 
@@ -72,7 +64,7 @@ export default function AboutUs() {
           <CardMedia
             component="img"
             sx={{ width:'100%'}}
-            image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_11.png"
+            image="https://assets.gq.ru/photos/5e0364f8b6b5970008ef35c5/16:9/w_2560%2Cc_limit/cover-tech.jpg"
             alt="JAWS"
           />
         </Grid>
@@ -98,17 +90,18 @@ export default function AboutUs() {
   <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
       <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5}>
         <Grid container>
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={6}
+          >
             <CardMedia
               component="img"
               sx={{ width:'100%'}}
-              image="https://demo.xpeedstudio.com/marketov2/home4/wp-content/uploads/sites/4/2018/05/about_us_img_21.png"
+              image="https://gsmpress.ru/images/articles/144733557817.png"
               alt="JAWS"
               ml={8}
               />
           </Grid>
               
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={6} sx={{ margin: "auto"}}>
             <Typography
             sx={{align: 'center'}}
               component="h1"
@@ -120,7 +113,7 @@ export default function AboutUs() {
               
             >
             We are marketpress
-            <Typography  variant="h5"  color="text.secondary" paragraph>
+            <Typography  variant="h5"  color="text.secondary" paragraph >
             Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
                 VISION
                 Credibly innovate granular internal
@@ -162,40 +155,21 @@ export default function AboutUs() {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Name
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe the
                       content.
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    
-                  </CardActions>
-                </Card>
+                 </Card>
               </Grid>
             ))}
           </Grid>
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-
-        {/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
-
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
+            
     </ThemeProvider>
   );
 }
