@@ -65,7 +65,6 @@ const ProductContexProvider = ({ children }) => {
   };
 
   //filter
-
   const fetchByParams = async (query, value) => {
     const search = new URLSearchParams(location.search);
 
@@ -75,6 +74,8 @@ const ProductContexProvider = ({ children }) => {
       search.set(query, value);
     }
     const url = `${location.pathname}?${search.toString()}`;
+    console.log(search.toString());
+    console.log(url);
     navigate(url);
   };
 

@@ -1,5 +1,4 @@
-import { Grid, Pagination } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box, Grid, Pagination } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
@@ -8,7 +7,6 @@ import ProductCard from './ProductCard';
 const ProductList = () => {
   const { products, getProducts } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(products);
 
   useEffect(() => {
     getProducts();
@@ -19,9 +17,9 @@ const ProductList = () => {
     setPage(1);
   }, [searchParams]);
 
-  //pagination
+  // pagination
   const [page, setPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
 
   const count = Math.ceil(products.length / itemsPerPage);
 
@@ -55,6 +53,7 @@ const ProductList = () => {
             <h2>Loading...</h2>
           )}
         </Box>
+
         <Pagination
           count={count}
           variant="outlined"

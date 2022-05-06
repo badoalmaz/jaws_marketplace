@@ -14,7 +14,6 @@ const SideBar = () => {
   const { fetchByParams } = useProducts();
 
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [search, setSearch] = useState(searchParams.get('q') || '');
 
   useEffect(() => {
@@ -22,6 +21,7 @@ const SideBar = () => {
       q: search,
     });
   }, [search]);
+
   return (
     <Grid item md={3}>
       <Paper elevation={5} sx={{ p: 2 }}>
@@ -40,10 +40,10 @@ const SideBar = () => {
           }}
           variant="standard"
         />
+
         <Grid>
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Type</FormLabel>
-
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="all"
@@ -57,10 +57,12 @@ const SideBar = () => {
                 control={<Radio />}
                 label="telephone"
               />
+
               <FormControlLabel
                 value="laptop"
                 control={<Radio />}
-                label="laptop"
+                label="laptop
+              "
               />
               <FormControlLabel
                 value="watch"
@@ -73,7 +75,6 @@ const SideBar = () => {
 
         <FormControl>
           <FormLabel id="demo-radio-buttons-group-label">Price</FormLabel>
-
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="all"
@@ -87,10 +88,12 @@ const SideBar = () => {
               control={<Radio />}
               label="less than 100"
             />
+
             <FormControlLabel
               value="600"
               control={<Radio />}
-              label="less than 600"
+              label="less than 600
+          "
             />
             <FormControlLabel
               value="1300"

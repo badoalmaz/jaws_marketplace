@@ -5,6 +5,7 @@ import { useProducts } from '../../contexts/ProductContexProvider';
 
 const AddProduct = () => {
   const { addProduct } = useProducts();
+
   const navigate = useNavigate();
 
   const [product, setProduct] = useState({
@@ -30,8 +31,6 @@ const AddProduct = () => {
       setProduct(obj);
     }
   };
-
-  console.log(product);
 
   return (
     <Box sx={{ width: '60vw', margin: '10vh auto' }}>
