@@ -3,9 +3,11 @@ import Cart from '../components/cart/Cart';
 
 const CartPage = () => {
   return (
-  <div>
-    <Cart/>
-  </div>);
+    <div>
+      CartPage
+      <Cart />
+    </div>
+  );
 };
 
 export default CartPage;

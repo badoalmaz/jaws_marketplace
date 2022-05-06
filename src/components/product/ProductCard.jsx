@@ -8,16 +8,15 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 import { IconButton } from '@mui/material';
-import { ShoppingCart } from '@mui/icons-material';
-
-import { useCart } from '../../contexts/CartContextProvider'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart } from '../../contexts/CartContextProvider';
 
 export default function ProductCard({ item }) {
   const navigate = useNavigate();
 
   const { deleteProduct } = useProducts();
 
-  const { addProductToCart, checkProductInCart } = useCart()
+  const { addProductToCart, checkProductInCart } = useCart();
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -60,11 +59,11 @@ export default function ProductCard({ item }) {
           Edit
         </Button>
 
-        <IconButton onClick={()=> addProductToCart(item)}>
-          <ShoppingCart color={checkProductInCart(item.id) ? 'success' : ''}/>
+        <IconButton onClick={() => addProductToCart(item)}>
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? 'primary' : ''}
+          />
         </IconButton>
-
-
       </CardActions>
     </Card>
   );

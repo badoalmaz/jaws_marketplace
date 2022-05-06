@@ -16,6 +16,9 @@ import { useAuth } from '../../contexts/AuthContextProvider';
 import { ShoppingCart } from '@mui/icons-material';
 import { Badge } from '@mui/material';
 
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
+
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
   { name: 'CONTACT US', link: '/contacts', id: 2 },
@@ -107,6 +110,7 @@ const Navbar = () => {
           >
             LOGO
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link to={page.link} key={page.id}>
@@ -119,13 +123,13 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Link to='/cart'>  
-            <Button sx={{color: 'white', my: 2}} > 
-            <Badge badgeContent={4} color="error"> <ShoppingCart/> </Badge> 
-            </Button>
-            </Link>  
-
-
+            <Link to="/cart">
+              <Button sx={{ my: 2, color: 'white' }}>
+                <Badge badgeContent={4} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
