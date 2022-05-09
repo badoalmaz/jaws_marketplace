@@ -4,7 +4,7 @@ import AuthContextProvider from './contexts/AuthContextProvider';
 import CartContextProvider from './contexts/CartContextProvider';
 import ProductContexProvider from './contexts/ProductContexProvider';
 import MainRoutes from './routes/MainRoutes';
-import MainPage from './components/mainpage/MainPage';
+import ThemeRoot from './themeRoot';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <ProductContexProvider>
           <CartContextProvider>
             <Navbar />
+            <ThemeRoot />
             <MainRoutes />
             <Footer />
           </CartContextProvider>

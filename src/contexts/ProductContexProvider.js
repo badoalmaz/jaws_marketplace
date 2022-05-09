@@ -9,6 +9,7 @@ export const useProducts = () => {
   return useContext(productContext);
 };
 
+
 const INIT_STATE = {
   products: [],
   productDetails: {},
@@ -27,10 +28,16 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ProductContexProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+<<<<<<< HEAD
   const location = useLocation();
   const navigate = useNavigate();
+=======
+const location = useLocation()
+const navigate = useNavigate()
 
-  const getProducts = async () => {
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
+
+    const getProducts = async () => {
     const { data } = await axios(
       `${JSON_API_PRODUCTS}${window.location.search}`
     );
@@ -53,15 +60,19 @@ const ProductContexProvider = ({ children }) => {
     });
   };
 
-  const saveEditedProduct = async (newProduct) => {
+
+
+  const saveEditedProduct = async(newProduct) => {
     await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
-    getProducts();
-  };
+    getProducts()
+  }
 
   const deleteProduct = async (id) => {
     await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
     getProducts();
   };
+
+
 
   //filter
   const fetchByParams = async (query, value) => {

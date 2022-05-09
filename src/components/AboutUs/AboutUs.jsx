@@ -13,7 +13,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from '@mui/material';
 
 function Copyright() {
-  return <></>;
+  return (
+    <>
+    </>
+  );
 }
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -23,6 +26,7 @@ const theme = createTheme();
 export default function AboutUs() {
   return (
     <ThemeProvider theme={theme}>
+<<<<<<< HEAD
       <main>
         {/* Hero unit */}
 
@@ -140,15 +144,133 @@ export default function AboutUs() {
         {/* End hero unit */}
 
         <Container sx={{ py: 8 }} maxWidth="md">
+=======
+     <main>
+        {/* Hero unit */}
+        
+<Box
+  sx={{
+      bgcolor: 'background.paper',
+      pt: 8,
+      pb: 6,
+  }}
+    >
+  <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
+    <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5} >
+      <Grid container>
+        <Grid item sm={12} md={6}
+          sx={{ margin: "auto"}}
+        >
+          <Typography 
+          
+              component="h1"
+              variant="h3"
+              align="center"
+              color="text.primary"
+              gutterBottom
+              mr= {5}
+              
+              
+             >
+              Creative and renovate fashion trends
+            <Typography variant="h5" color="text.secondary" paragraph sx={{ margin: "auto", verticalAlign: 'middle'}}>
+            Collaboratively administrate empowered markets via plug-and-play maintain networks. Dynamically usable procrastinate B2B users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI
+            </Typography>
+
+          </Typography>
+        </Grid>
+        <Grid item sm={12} md={6}>
+          <CardMedia
+            component="img"
+            sx={{ width:'100%'}}
+            image="https://assets.gq.ru/photos/5e0364f8b6b5970008ef35c5/16:9/w_2560%2Cc_limit/cover-tech.jpg"
+            alt="JAWS"
+          />
+        </Grid>
+      </Grid>
+            <Stack
+              sx={{ pt: 8 }}
+              spacing={6}
+              justifyContent="center"
+            >
+            </Stack>
+    </Container>
+  </Paper>
+</Box>
+
+  <Box
+    sx={{
+      bgcolor: 'background.paper',
+      pt: 8,
+      pb: 6,
+    }}
+    >
+
+  <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
+      <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap'}} spacing={5}>
+        <Grid container>
+          <Grid item sm={12} md={6}
+          >
+            <CardMedia
+              component="img"
+              sx={{ width:'100%'}}
+              image="https://gsmpress.ru/images/articles/144733557817.png"
+              alt="JAWS"
+              ml={8}
+              />
+          </Grid>
+              
+          <Grid item sm={12} md={6} sx={{ margin: "auto"}}>
+            <Typography
+            sx={{align: 'center'}}
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom
+              ml={5}
+              
+            >
+            We are marketpress
+            <Typography  variant="h5"  color="text.secondary" paragraph >
+            Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+                VISION
+                Credibly innovate granular internal
+                Grantedly underconstructions reloaded
+                Interactively procrastinate high-payoff
+                Completely synergize resource taxing relationships
+            </Typography>
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Stack
+          sx={{ pt: 8 }}
+          spacing={6}
+          justifyContent="center"
+        >
+        </Stack>
+      </Container>
+  </Paper>
+  </Box>
+          {/* End hero unit */}
+
+        <Container sx={{ py: 8 }} maxWidth="md">
+          
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
+<<<<<<< HEAD
                   sx={{
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
                   }}
+=======
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
                 >
                   <CardMedia
                     component="img"
@@ -164,17 +286,32 @@ export default function AboutUs() {
                       Name
                     </Typography>
                     <Typography>
+<<<<<<< HEAD
                       This is a media card. You can use this section to describe
                       the content.
                     </Typography>
                   </CardContent>
                 </Card>
+=======
+                      This is a media card. You can use this section to describe the
+                      content.
+                    </Typography>
+                  </CardContent>
+                 </Card>
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
               </Grid>
             ))}
           </Grid>
         </Container>
       </main>
       {/* Footer */}
+<<<<<<< HEAD
     </ThemeProvider>
   );
 }
+=======
+            
+    </ThemeProvider>
+  );
+}
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd

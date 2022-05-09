@@ -28,6 +28,12 @@ const ProductList = () => {
   };
   // pagination
 
+  const handleChange = (e, p) => {
+    console.log(p);
+    setPage(p);
+  };
+  // pagination
+
   function currentData() {
     const begin = (page - 1) * itemsPerPage;
     const end = begin + itemsPerPage;
