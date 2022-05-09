@@ -13,10 +13,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContextProvider';
-
-
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
+import { getCountProductsInCart } from '../../helpers/functions';
+import {useCart} from "../../contexts/CartContextProvider";
+
+
+
+
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
@@ -38,21 +42,20 @@ const Navbar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const {addProductToCart} = useCart();
+  const [count, setCount] = React.useState(0)
+  
+React.useEffect(() => {
+  setCount(getCountProductsInCart)
+}, [addProductToCart])
 
   return (
-    <AppBar position="static" elevation={3} >
-      <Container maxWidth="xl" sx={{background:'white'}}>
+    <AppBar position="static" elevation={3} sx={{background:'white'}}>
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -124,7 +127,7 @@ const Navbar = () => {
 
             <Link to="/cart">
               <Button sx={{ my: 2, color: 'black' }}>
-                <Badge badgeContent={4} color="error">
+                <Badge badgeContent={count} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </Button>

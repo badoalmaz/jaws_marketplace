@@ -34,6 +34,7 @@ export default function AboutUs() {
       bgcolor: 'background.paper',
       pt: 8,
       pb: 6,
+      mt: 5,
   }}
     >
   <Paper sx={{ maxWidth: '100%',  m: 6, boxShadow: 0  }}>
@@ -84,6 +85,7 @@ export default function AboutUs() {
       bgcolor: 'background.paper',
       pt: 8,
       pb: 6,
+      mt: 10
     }}
     >
 

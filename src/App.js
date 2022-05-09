@@ -13,7 +13,7 @@ function App() {
         <ProductContexProvider>
           <CartContextProvider>
             <Navbar />
-            <ThemeRoot />
+            <ThemeRoot/>
             <MainRoutes />
             <Footer />
           </CartContextProvider>

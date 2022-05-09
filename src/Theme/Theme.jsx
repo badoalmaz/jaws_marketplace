@@ -3,8 +3,8 @@ import {createGlobalStyle} from "styled-components"
 export const darkTheme = {
     body: "#000",
     textColor: "#fff", 
-    headingColor: "lightblue"
-    
+    headingColor: "lightblue",
+    inputColor: "white"
 
   }
   
@@ -22,5 +22,13 @@ export const darkTheme = {
    }
    h2{
      color: ${props => props.theme.headingColor};
+
+   }
+   .MuiFormControl-root{
+    background-color: ${props => props.theme.inputColor}
+   }
+
+   .MuiCheckbox-root {
+    background-color: ${props => props.theme.inputColor}
    }
    `
