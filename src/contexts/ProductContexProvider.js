@@ -1,109 +1,74 @@
-import axios from 'axios';
-import React, { createContext, useContext, useReducer } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { ACTIONS, JSON_API_PRODUCTS } from '../helpers/consts';
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../contexts/ProductContexProvider';
+import { IconButton } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart } from '../../contexts/CartContextProvider';
 
-export const productContext = createContext();
-
-export const useProducts = () => {
-  return useContext(productContext);
-};
-
-
-const INIT_STATE = {
-  products: [],
-  productDetails: {},
-};
-
-const reducer = (state = INIT_STATE, action) => {
-  switch (action.type) {
-    case ACTIONS.GET_PRODUCTS:
-      return { ...state, products: action.payload };
-    case ACTIONS.GET_PRODUCT_DETAILS:
-      return { ...state, productDetails: action.payload };
-    default:
-      return state;
-  }
-};
-
-const ProductContexProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
-<<<<<<< HEAD
-  const location = useLocation();
+export default function ProductCard({ item }) {
   const navigate = useNavigate();
-=======
-const location = useLocation()
-const navigate = useNavigate()
 
->>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
-
-    const getProducts = async () => {
-    const { data } = await axios(
-      `${JSON_API_PRODUCTS}${window.location.search}`
-    );
-    dispatch({
-      type: ACTIONS.GET_PRODUCTS,
-      payload: data,
-    });
-  };
-
-  const addProduct = async (newProduct) => {
-    await axios.post(JSON_API_PRODUCTS, newProduct);
-    getProducts();
-  };
-
-  const getProductDetails = async (id) => {
-    const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
-    dispatch({
-      type: ACTIONS.GET_PRODUCT_DETAILS,
-      payload: data,
-    });
-  };
-
-
-
-  const saveEditedProduct = async(newProduct) => {
-    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
-    getProducts()
-  }
-
-  const deleteProduct = async (id) => {
-    await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
-    getProducts();
-  };
-
-
-
-  //filter
-  const fetchByParams = async (query, value) => {
-    const search = new URLSearchParams(location.search);
-
-    if (value === 'all') {
-      search.delete(query);
-    } else {
-      search.set(query, value);
-    }
-    const url = `${location.pathname}?${search.toString()}`;
-    console.log(search.toString());
-    console.log(url);
-    navigate(url);
-  };
-
-  const values = {
-    products: state.products,
-    productDetails: state.productDetails,
-
-    addProduct,
-    getProducts,
-    getProductDetails,
-    deleteProduct,
-    saveEditedProduct,
-    fetchByParams,
-  };
+  const { deleteProduct } = useProducts();
+  const { addProductToCart, checkProductInCart } = useCart();
 
   return (
-    <productContext.Provider value={values}>{children}</productContext.Provider>
-  );
-};
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={item.picture}
+        alt={item.name}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {item.name}
+        </Typography>
 
-export default ProductContexProvider;
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ color: 'green', fontWeight: '700' }}
+        >
+          {item.price}$
+        </Typography>
+
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          onClick={() => navigate(`/products/${item.id}`)}
+          sx={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: '3',
+            WebkitBoxOrient: 'vertical',
+          }}
+        >
+          {item.description}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" onClick={() => deleteProduct(item.id)}>
+          Delete
+        </Button>
+
+        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+          Edit
+        </Button>
+
+        <IconButton onClick={() => addProductToCart(item)}>
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? 'primary' : ''}
+          />
+        </IconButton>
+      </CardActions>
+    </Card>
+  );
+}

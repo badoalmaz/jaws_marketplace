@@ -1,39 +1,40 @@
-import { Grid, Paper, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
+import { display } from '@mui/system';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 
 const ProductDetails = () => {
-  const { id } = useParams();
-  //   console.log(id);
-  const { getProductDetails, productDetails } = useProducts();
+
+  const {id} = useParams();
+
+  const {getProductDetails, productDetails} = useProducts();
 
   useEffect(() => {
     getProductDetails(id);
-  }, []);
-
-  console.log(productDetails);
+  }, [])
 
   return (
-    <Paper sx={{ m: 3 }} elevation={24}>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <img
-            src={productDetails.picture}
-            alt=""
-            style={{ maxWidth: '100%' }}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h3">{productDetails.name}</Typography>
-          <Typography variant="subtitle1">{productDetails.type}</Typography>
-          <Typography variant="caption">{productDetails.price}</Typography>
-          <Typography variant="caption">
+    <>
+      <Grid container spacing={8} sx={{marginTop: '1vh', display: 'flex', justifyContent: 'center'}}>
+        <Grid item xs={12} md={5}><img src={productDetails.picture} alt={productDetails.name} style={{width: '100%'}}/></Grid>
+        <Grid item xs={12} md={5} sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', marginBottom: '10vh'}}>
+          <Typography variant='h4' sx={{marginBottom: '1rem'}}>
+            {productDetails.name}
+          </Typography>
+          <Typography sx={{marginBottom: '1rem'}}>
+            Type: <b style={{color: '#297DFF'}}>{productDetails.type}</b>
+          </Typography>
+          <Typography sx={{marginBottom: '1rem'}}>
             {productDetails.description}
           </Typography>
+          <Typography variant='h6' sx={{marginBottom: '1rem', color: '#83B73B'}}>
+            ${productDetails.price}
+          </Typography>
+          <Button variant='contained' sx={{fontSize: '0.7rem', padding: '14px 44px', width: '12vw'}}>Add to cart</Button>
         </Grid>
       </Grid>
-    </Paper>
+    </>
   );
 };
 
