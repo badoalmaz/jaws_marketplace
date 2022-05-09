@@ -1,4 +1,4 @@
-  import { BottomNavigation, Grid, Pagination } from '@mui/material';
+import { BottomNavigation, Grid, Pagination } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -42,7 +42,7 @@ const ProductList = () => {
 
   return (
     <>
-      <Grid item sx={{justifyContent: 'center', display: 'flex', flexWrap: 'wrap'}} md={9}>
+      <Grid item md={9}>
         <Box
           sx={{
             display: 'flex',
