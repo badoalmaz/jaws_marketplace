@@ -28,6 +28,19 @@ function reducer(state = INIT_STATE, action) {
   }
 }
 
+function checkProductInCart(id) {
+  let cart = JSON.parse(localStorage.getItem('cart'));
+  if (cart) {
+    let newCart = cart.products.filter((elem) => elem.item.id == id);
+    return newCart.length > 0 ? true : false;
+  } else {
+    cart = {
+      product: [],
+      totalPrice: 0,
+    };
+  }
+}
+
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -109,7 +122,7 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  function checkProductInCard(id) {
+  function checkProductInCart(id) {
     let cart = JSON.parse(localStorage.getItem('cart'));
     if (cart) {
       let newCart = cart.products.filter((elem) => elem.item.id == id);
@@ -125,10 +138,10 @@ const CartContextProvider = ({ children }) => {
   function deleteCartProduct(id) {
     let cart = JSON.parse(localStorage.getItem('cart'));
     cart.products = cart.products.filter((elem) => elem.item.id !== id);
+
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem('cart', JSON.stringify(cart));
     getCart();
-
     dispatch({
       type: CART.GET_CART_LENGTH,
       payload: cart,
@@ -141,9 +154,8 @@ const CartContextProvider = ({ children }) => {
         getCart,
         addProductToCart,
         changeProductCount,
-        checkProductInCard,
+        checkProductInCart,
         deleteCartProduct,
-
         cart: state.cart,
       }}
     >

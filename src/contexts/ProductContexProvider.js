@@ -27,7 +27,6 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ProductContexProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -54,13 +53,13 @@ const ProductContexProvider = ({ children }) => {
     });
   };
 
-  const deleteProduct = async (id) => {
-    await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
+  const saveEditedProduct = async (newProduct) => {
+    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
     getProducts();
   };
 
-  const saveEditedProduct = async (newProduct) => {
-    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
+  const deleteProduct = async (id) => {
+    await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
     getProducts();
   };
 
@@ -88,7 +87,6 @@ const ProductContexProvider = ({ children }) => {
     getProductDetails,
     deleteProduct,
     saveEditedProduct,
-
     fetchByParams,
   };
 

@@ -1,4 +1,5 @@
-import { Box, Grid, Pagination } from '@mui/material';
+import { BottomNavigation, Grid, Pagination } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
@@ -17,16 +18,15 @@ const ProductList = () => {
     setPage(1);
   }, [searchParams]);
 
-  // pagination
   const [page, setPage] = useState(1);
   const itemsPerPage = 3;
-
   const count = Math.ceil(products.length / itemsPerPage);
 
   const handleChange = (e, p) => {
     console.log(p);
     setPage(p);
   };
+  // pagination
 
   function currentData() {
     const begin = (page - 1) * itemsPerPage;
