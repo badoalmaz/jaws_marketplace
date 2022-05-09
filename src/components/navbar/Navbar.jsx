@@ -16,11 +16,7 @@ import { useAuth } from '../../contexts/AuthContextProvider';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { getCountProductsInCart } from '../../helpers/functions';
-import {useCart} from "../../contexts/CartContextProvider";
-
-
-
-
+import { useCart } from '../../contexts/CartContextProvider';
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
@@ -46,16 +42,16 @@ const Navbar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const {addProductToCart} = useCart();
-  const [count, setCount] = React.useState(0)
-  
-React.useEffect(() => {
-  setCount(getCountProductsInCart)
-}, [addProductToCart])
+  const { addProductToCart } = useCart();
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    setCount(getCountProductsInCart);
+  }, [addProductToCart]);
 
   return (
-    <AppBar position="static" elevation={3} >
-      <Container maxWidth="xl" sx={{background:'white'}}>
+    <AppBar position="static" elevation={3}>
+      <Container maxWidth="xl" sx={{ background: 'white' }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -63,7 +59,11 @@ React.useEffect(() => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <img  id='logo' src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png" alt="" />
+            <img
+              id="logo"
+              src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+              alt=""
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -82,7 +82,7 @@ React.useEffect(() => {
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
-                color:'black',
+                color: 'black',
               }}
               keepMounted
               transformOrigin={{
@@ -94,15 +94,25 @@ React.useEffect(() => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            ><Box >
+            >
+              <Box>
                 {pages.map((page) => (
                   <MenuItem key={page.id} onClick={handleCloseNavMenu}>
                     <Link to={page.link}>
-                      <Typography sx={{ ml: 'auto',my: 1, color: 'black', display: 'block',}}>{page.name}</Typography>
+                      <Typography
+                        sx={{
+                          ml: 'auto',
+                          my: 1,
+                          color: 'black',
+                          display: 'block',
+                        }}
+                      >
+                        {page.name}
+                      </Typography>
                     </Link>
                   </MenuItem>
                 ))}
-            </Box>
+              </Box>
             </Menu>
           </Box>
           <Typography
@@ -111,14 +121,30 @@ React.useEffect(() => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <img  id='logo' src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png" alt="" />
+            <img
+              id="logo"
+              src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+              alt=""
+            />
           </Typography>
-          <Box sx={{justifyContent: 'center', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              justifyContent: 'center',
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+            }}
+          >
             {pages.map((page) => (
               <Link to={page.link} key={page.id}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ ml: 'auto',my: 2, color: 'black', display: 'block', fontWeight: 'bold'}}
+                  sx={{
+                    ml: 'auto',
+                    my: 2,
+                    color: 'black',
+                    display: 'block',
+                    fontWeight: 'bold',
+                  }}
                 >
                   {page.name}
                 </Button>
@@ -136,12 +162,17 @@ React.useEffect(() => {
 
           <Box sx={{ flexGrow: 0 }}>
             {email ? (
-              <Button sx={{ color: 'black',fontWeight: 'bold' }} onClick={handleLogout}>
+              <Button
+                sx={{ color: 'black', fontWeight: 'bold' }}
+                onClick={handleLogout}
+              >
                 LOGOUT
               </Button>
             ) : (
               <Link to="/auth">
-                <Button sx={{ color: 'black',fontWeight: 'bold' }}>LOGIN</Button>
+                <Button sx={{ color: 'black', fontWeight: 'bold' }}>
+                  LOGIN
+                </Button>
               </Link>
             )}
           </Box>

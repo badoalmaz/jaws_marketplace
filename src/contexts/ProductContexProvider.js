@@ -26,11 +26,16 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const ProductContexProvider = ({children}) => {
+const ProductContexProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+<<<<<<< HEAD
+  const location = useLocation();
+  const navigate = useNavigate();
+=======
 const location = useLocation()
 const navigate = useNavigate()
 
+>>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
 
     const getProducts = async () => {
     const { data } = await axios(
@@ -96,7 +101,9 @@ const navigate = useNavigate()
     fetchByParams,
   };
 
-
-  return <productContext.Provider value={values}>{children}</productContext.Provider>};
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
+};
 
 export default ProductContexProvider;

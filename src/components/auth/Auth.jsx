@@ -14,7 +14,6 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useAuth } from '../../contexts/AuthContextProvider';
 
-
 function Copyright(props) {
   return (
     <Typography
@@ -97,7 +96,6 @@ export default function Auth() {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-             
             />
             <TextField
               margin="normal"
@@ -124,9 +122,8 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2,backgroundColor:'royalblue' }}
+                sx={{ mt: 3, mb: 2, backgroundColor: 'royalblue' }}
                 onClick={handleLogin}
-
               >
                 Sign In
               </Button>
@@ -134,7 +131,7 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2,backgroundColor:'royalblue' }}
+                sx={{ mt: 3, mb: 2, backgroundColor: 'royalblue' }}
                 onClick={handleSignUp}
               >
                 Sign Up

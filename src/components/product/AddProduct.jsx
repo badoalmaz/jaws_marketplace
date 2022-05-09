@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../contexts/ProductContexProvider';
 
 const AddProduct = () => {
-  const {addProduct} = useProducts();
-  const navigate = useNavigate()
-
+  const { addProduct } = useProducts();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState({
     name: '',
@@ -14,23 +13,23 @@ const AddProduct = () => {
     price: 0,
     picture: '',
     type: '',
-  })
+  });
 
   const handleInp = (e) => {
-    if(e.target.name === 'price'){
+    if (e.target.name === 'price') {
       let obj = {
         ...product,
         [e.target.name]: Number(e.target.value),
       };
-      setProduct(obj)
+      setProduct(obj);
     } else {
       let obj = {
         ...product,
         [e.target.name]: e.target.value,
-      }
-      setProduct(obj)
+      };
+      setProduct(obj);
     }
-  }
+  };
 
   return (
     <Box sx={{ width: '60vw', margin: '10vh auto' }}>
@@ -39,7 +38,7 @@ const AddProduct = () => {
         id="outlined-basic"
         label="Name"
         variant="outlined"
-        name='name'
+        name="name"
         onChange={handleInp}
       />
       <TextField
@@ -47,7 +46,7 @@ const AddProduct = () => {
         id="outlined-basic"
         label="Description"
         variant="outlined"
-        name='description'
+        name="description"
         onChange={handleInp}
       />
       <TextField
@@ -55,7 +54,7 @@ const AddProduct = () => {
         id="outlined-basic"
         label="Price"
         variant="outlined"
-        name='price'
+        name="price"
         onChange={handleInp}
       />
       <TextField
@@ -63,7 +62,7 @@ const AddProduct = () => {
         id="outlined-basic"
         label="Picture"
         variant="outlined"
-        name='picture'
+        name="picture"
         onChange={handleInp}
       />
       <TextField
@@ -71,7 +70,7 @@ const AddProduct = () => {
         id="outlined-basic"
         label="Type"
         variant="outlined"
-        name='type'
+        name="type"
         onChange={handleInp}
       />
       <Button
