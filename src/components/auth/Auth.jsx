@@ -24,7 +24,7 @@ function Copyright(props) {
     >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        JAWS
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -69,7 +69,7 @@ export default function Auth() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'yellowgreen' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -83,6 +83,7 @@ export default function Auth() {
           >
             <TextField
               margin="normal"
+              size="small"
               required
               fullWidth
               id="email"
@@ -98,6 +99,7 @@ export default function Auth() {
             />
             <TextField
               margin="normal"
+              size="small"
               required
               fullWidth
               name="password"
@@ -120,7 +122,7 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, backgroundColor: 'royalblue' }}
                 onClick={handleLogin}
               >
                 Sign In
@@ -129,7 +131,7 @@ export default function Auth() {
               <Button
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, backgroundColor: 'royalblue' }}
                 onClick={handleSignUp}
               >
                 Sign Up
