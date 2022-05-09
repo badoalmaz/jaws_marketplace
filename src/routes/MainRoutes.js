@@ -9,6 +9,7 @@ import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
 import ProductsPage from '../pages/ProductsPage';
+import EditProductPage from '../pages/EditProductPage';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -56,6 +57,11 @@ const MainRoutes = () => {
       link: '/admin',
       element: <AdminPage />,
       id: 9,
+    },
+    {
+      link: '/edit/:id',
+      element: <EditProductPage />,
+      id: 10,
     },
   ];
 
