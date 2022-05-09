@@ -17,12 +17,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { getCountProductsInCart } from '../../helpers/functions';
 import { useCart } from '../../contexts/CartContextProvider';
+import { ADMIN } from '../../helpers/consts';
 
 const pages = [
   { name: 'ABOUT US', link: '/about', id: 1 },
   { name: 'CONTACT US', link: '/contacts', id: 2 },
   { name: 'PRODUCTS', link: '/products', id: 3 },
-  { name: 'ADMIN', link: '/admin', id: 4 },
+  // { name: 'ADMIN', link: '/admin', id: 4 },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -31,6 +32,7 @@ const Navbar = () => {
     handleLogout,
     user: { email },
   } = useAuth();
+  console.log(email);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -151,13 +153,19 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Link to="/cart">
-              <Button sx={{ my: 2, color: 'black' }}>
-                <Badge badgeContent={count} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-              </Button>
-            </Link>
+            {email == ADMIN ? (
+              <Link to="/admin">
+                <Button sx={{ my: 2, color: 'black' }}>ADMIN PAGE</Button>
+              </Link>
+            ) : (
+              <Link to="/cart">
+                <Button sx={{ my: 2, color: 'black' }}>
+                  <Badge badgeContent={count} color="error">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </Button>
+              </Link>
+            )}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

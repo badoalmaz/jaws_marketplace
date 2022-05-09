@@ -1,4 +1,4 @@
-  import { BottomNavigation, Grid, Pagination } from '@mui/material';
+import { BottomNavigation, Grid, Pagination } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -28,12 +28,6 @@ const ProductList = () => {
   };
   // pagination
 
-  const handleChange = (e, p) => {
-    console.log(p);
-    setPage(p);
-  };
-  // pagination
-
   function currentData() {
     const begin = (page - 1) * itemsPerPage;
     const end = begin + itemsPerPage;
@@ -42,7 +36,11 @@ const ProductList = () => {
 
   return (
     <>
-      <Grid item sx={{justifyContent: 'center', display: 'flex', flexWrap: 'wrap'}} md={9}>
+      <Grid
+        item
+        sx={{ justifyContent: 'center', display: 'flex', flexWrap: 'wrap' }}
+        md={9}
+      >
         <Box
           sx={{
             display: 'flex',
