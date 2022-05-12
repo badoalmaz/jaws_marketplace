@@ -5,6 +5,7 @@ import AdminPage from '../pages/AdminPage';
 import AuthPage from '../pages/AuthPage';
 import CartPage from '../pages/CartPage';
 import ContactUsPage from '../pages/ContactUsPage';
+import EditProductPage from '../pages/EditProductPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
