@@ -9,7 +9,6 @@ export const useProducts = () => {
   return useContext(productContext);
 };
 
-
 const INIT_STATE = {
   products: [],
   productDetails: {},
@@ -26,16 +25,12 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const ProductContexProvider = ({ children }) => {
+const ProductContexProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-<<<<<<< HEAD
-  const location = useLocation();
-  const navigate = useNavigate();
-=======
+
 const location = useLocation()
 const navigate = useNavigate()
 
->>>>>>> 1cb8640d9e24bdd31e4f2f146349ee96b71c8afd
 
     const getProducts = async () => {
     const { data } = await axios(
@@ -61,11 +56,28 @@ const navigate = useNavigate()
   };
 
 
+  const getProducts = async () => {
+    const { data } = await axios(
+      `${JSON_API_PRODUCTS}${window.location.search}`
+    );
+    dispatch({
+      type: ACTIONS.GET_PRODUCTS,
+      payload: data,
+    });
+  };
 
-  const saveEditedProduct = async(newProduct) => {
-    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
-    getProducts()
-  }
+  const addProduct = async (newProduct) => {
+    await axios.post(JSON_API_PRODUCTS, newProduct);
+    getProducts();
+  };
+
+  const getProductDetails = async (id) => {
+    const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_PRODUCT_DETAILS,
+      payload: data,
+    });
+  };
 
   const deleteProduct = async (id) => {
     await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
@@ -73,6 +85,10 @@ const navigate = useNavigate()
   };
 
 
+  const saveEditedProduct = async (newProduct) => {
+    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
+    getProducts();
+  };
 
   //filter
   const fetchByParams = async (query, value) => {
@@ -98,12 +114,12 @@ const navigate = useNavigate()
     getProductDetails,
     deleteProduct,
     saveEditedProduct,
+
+
     fetchByParams,
   };
 
-  return (
-    <productContext.Provider value={values}>{children}</productContext.Provider>
-  );
-};
+
+  return <productContext.Provider value={values}>{children}</productContext.Provider>};
 
 export default ProductContexProvider;
